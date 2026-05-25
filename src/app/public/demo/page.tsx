@@ -1,15 +1,25 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { TrendingUp, Users, Globe, Star, ArrowLeft, ExternalLink } from 'lucide-react'
+import { TrendingUp, Users, Globe, Star, ArrowLeft, ExternalLink, Copy, Check } from 'lucide-react'
 import Link from 'next/link'
 
 export default function PublicPage() {
   const [metrics, setMetrics] = useState({ mrr: 4237, users: 312, visitors: 15200, stars: 89 })
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem('openmetrics')
-    if (saved) setMetrics(JSON.parse(saved))
+    try {
+      const saved = localStorage.getItem('openmetrics')
+      if (saved) {
+        const parsed = JSON.parse(saved)
+        if (parsed && typeof parsed === 'object' && 'mrr' in parsed) {
+          setMetrics(parsed)
+        }
+      }
+    } catch {
+      // Invalid localStorage data, ignore
+    }
   }, [])
 
   const history = [
@@ -17,6 +27,13 @@ export default function PublicPage() {
     { month: 'Apr', mrr: 3100 }, { month: 'May', mrr: 3800 }, { month: 'Jun', mrr: metrics.mrr },
   ]
   const maxMrr = Math.max(...history.map(h => h.mrr))
+
+  const copyEmbed = () => {
+    const code = `<iframe src="https://oversea-starups.github.io/build-in-public-dashboard/public/demo" width="100%" height="600" frameborder="0"></iframe>`
+    navigator.clipboard.writeText(code)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <main className="min-h-screen bg-neutral-950">
@@ -35,9 +52,17 @@ export default function PublicPage() {
               <p className="text-sm text-neutral-500">Building in public since 2026</p>
             </div>
           </div>
-          <a href="#" className="inline-flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 transition">
-            Visit product <ExternalLink className="w-3 h-3" />
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://github.com/oversea-starups/build-in-public-dashboard" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 transition">
+              Visit product <ExternalLink className="w-3 h-3" />
+            </a>
+            <button onClick={copyEmbed}
+              className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition">
+              {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+              {copied ? 'Embed code copied' : 'Copy embed code'}
+            </button>
+          </div>
         </header>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
@@ -61,8 +86,26 @@ export default function PublicPage() {
           </div>
         </div>
 
+        {/* Milestones */}
+        <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-900/30 mb-8">
+          <h2 className="text-lg font-semibold text-white mb-4">Recent milestones</h2>
+          <div className="space-y-4">
+            {[
+              { date: 'Jun 2026', text: 'Crossed $4K MRR' },
+              { date: 'May 2026', text: '100 GitHub stars' },
+              { date: 'Apr 2026', text: 'Launched on Product Hunt' },
+            ].map((m, i) => (
+              <div key={i} className="flex items-center gap-4">
+                <span className="text-xs text-neutral-500 w-20 shrink-0">{m.date}</span>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                <span className="text-sm text-neutral-300">{m.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <footer className="text-center text-xs text-neutral-600 pt-8 border-t border-neutral-800">
-          Powered by OpenMetrics — Build in public
+          Powered by <Link href="/" className="hover:text-neutral-400 transition">OpenMetrics</Link> — <a href="https://github.com/oversea-starups/build-in-public-dashboard" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition">Build in public</a>
         </footer>
       </div>
     </main>
