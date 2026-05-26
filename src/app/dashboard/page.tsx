@@ -16,7 +16,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('openmetrics')
+      const saved = localStorage.getItem('indiemetrics')
       if (saved) {
         const parsed = JSON.parse(saved)
         if (parsed && typeof parsed === 'object' && 'mrr' in parsed) {
@@ -58,7 +58,7 @@ export default function DashboardPage() {
       <nav className="border-b border-neutral-800">
         <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-neutral-400 hover:text-white transition">
-            <ArrowLeft className="w-4 h-4" /> OpenMetrics
+            <ArrowLeft className="w-4 h-4" /> IndieMetrics
           </Link>
           <Link href="/public/demo" className="text-sm text-emerald-400 hover:text-emerald-300 transition">
             View public page →
@@ -132,7 +132,7 @@ export default function DashboardPage() {
           <h3 className="font-semibold text-white mb-4">Embed on your site</h3>
           <p className="text-sm text-neutral-400 mb-3">Copy this code to embed your public dashboard:</p>
           <pre className="p-4 bg-neutral-950 rounded-lg text-xs text-neutral-400 overflow-x-auto font-mono border border-neutral-800">
-            {`<iframe src="https://oversea-starups.github.io/build-in-public-dashboard/public/demo" width="100%" height="600" frameborder="0"></iframe>`}
+            {`<iframe src="https://indiemetrics.com/public/demo" width="100%" height="600" frameborder="0"></iframe>`}
           </pre>
         </div>
       </div>

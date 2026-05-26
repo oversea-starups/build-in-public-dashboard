@@ -10,7 +10,7 @@ export default function PublicPage() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('openmetrics')
+      const saved = localStorage.getItem('indiemetrics')
       if (saved) {
         const parsed = JSON.parse(saved)
         if (parsed && typeof parsed === 'object' && 'mrr' in parsed) {
@@ -29,7 +29,7 @@ export default function PublicPage() {
   const maxMrr = Math.max(...history.map(h => h.mrr))
 
   const copyEmbed = () => {
-    const code = `<iframe src="https://oversea-starups.github.io/build-in-public-dashboard/public/demo" width="100%" height="600" frameborder="0"></iframe>`
+    const code = `<iframe src="https://indiemetrics.com/public/demo" width="100%" height="600" frameborder="0"></iframe>`
     navigator.clipboard.writeText(code)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
@@ -48,7 +48,7 @@ export default function PublicPage() {
               <TrendingUp className="w-6 h-6 text-emerald-400" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">OpenMetrics Demo</h1>
+              <h1 className="text-2xl font-bold text-white">IndieMetrics Demo</h1>
               <p className="text-sm text-neutral-500">Building in public since 2026</p>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function PublicPage() {
         </div>
 
         <footer className="text-center text-xs text-neutral-600 pt-8 border-t border-neutral-800">
-          Powered by <Link href="/" className="hover:text-neutral-400 transition">OpenMetrics</Link> — <a href="https://github.com/oversea-starups/build-in-public-dashboard" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition">Build in public</a>
+          Powered by <Link href="/" className="hover:text-neutral-400 transition">IndieMetrics</Link> — <a href="https://github.com/oversea-starups/build-in-public-dashboard" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition">Build in public</a>
         </footer>
       </div>
     </main>

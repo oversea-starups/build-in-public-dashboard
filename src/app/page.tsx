@@ -3,6 +3,7 @@
 import { TrendingUp, Eye, Share2, ArrowRight, BarChart3, Check, Twitter, Star, Quote, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import { WaitlistForm } from '@/components/waitlist-form'
 
 export default function Home() {
   const [email, setEmail] = useState('')
@@ -25,7 +26,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <BarChart3 className="w-5 h-5 text-emerald-400" />
-            <span className="font-semibold text-white">OpenMetrics</span>
+            <span className="font-semibold text-white">IndieMetrics</span>
           </Link>
           <div className="flex items-center gap-6">
             <Link href="/dashboard" className="text-sm text-neutral-400 hover:text-white transition">Dashboard</Link>
@@ -54,7 +55,7 @@ export default function Home() {
           Connect Stripe, Gumroad, RevenueCat — then share a live dashboard that builds your community
           while you sleep.
         </p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 mb-8">
           <Link href="/dashboard"
             className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-medium rounded-lg transition">
             Create your dashboard <ArrowRight className="w-4 h-4" />
@@ -64,6 +65,7 @@ export default function Home() {
             See demo
           </Link>
         </div>
+        <WaitlistForm cta="Want lifetime deal pricing? Join the waitlist." />
 
         {/* Social Proof */}
         <div className="mt-12 flex items-center gap-4 text-sm text-neutral-500">
@@ -98,7 +100,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-white mb-12 text-center">Loved by indie makers</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <Testimonial
-            quote="I used to screenshot Stripe every Monday for my build-in-public thread. Now I just share my OpenMetrics link."
+            quote="I used to screenshot Stripe every Monday for my build-in-public thread. Now I just share my IndieMetrics link."
             author="Tom K."
             role="Solo founder, DevTools"
           />
@@ -211,7 +213,7 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <BarChart3 className="w-5 h-5 text-emerald-400" />
-                <span className="font-semibold text-white">OpenMetrics</span>
+                <span className="font-semibold text-white">IndieMetrics</span>
               </div>
               <p className="text-sm text-neutral-500">Auto-updating public dashboard for indie makers.</p>
             </div>

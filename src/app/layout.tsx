@@ -1,26 +1,26 @@
 export const metadata = {
-  title: 'OpenMetrics — Build in Public Dashboard',
+  title: 'IndieMetrics — Build in Public Dashboard',
   description: 'Auto-updating public dashboard for indie makers. Connect Stripe, Gumroad, RevenueCat and Google Analytics in one place. Build in public with transparency.',
   keywords: ['indie maker', 'dashboard', 'stripe', 'gumroad', 'revenuecat', 'metrics', 'build in public', 'open startup', 'analytics', 'transparent metrics'],
-  authors: [{ name: 'OpenMetrics' }],
-  creator: 'OpenMetrics',
-  metadataBase: new URL('https://oversea-starups.github.io'),
+  authors: [{ name: 'IndieMetrics' }],
+  creator: 'IndieMetrics',
+  metadataBase: new URL('https://indiemetrics.com'),
   alternates: {
-    canonical: '/build-in-public-dashboard',
+    canonical: '/',
   },
   openGraph: {
-    title: 'OpenMetrics — Build in Public Dashboard',
+    title: 'IndieMetrics — Build in Public Dashboard',
     description: 'Auto-updating public dashboard for indie makers. Connect Stripe, Gumroad, and Google Analytics.',
-    url: 'https://oversea-starups.github.io/build-in-public-dashboard',
-    siteName: 'OpenMetrics',
+    url: 'https://indiemetrics.com',
+    siteName: 'IndieMetrics',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OpenMetrics — Build in Public Dashboard',
+    title: 'IndieMetrics — Build in Public Dashboard',
     description: 'Auto-updating public dashboard for indie makers.',
-    creator: '@openmetrics',
+    creator: '@indiemetrics',
   },
   robots: {
     index: true,
@@ -31,11 +31,11 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/build-in-public-dashboard/favicon.svg',
-    shortcut: '/build-in-public-dashboard/favicon.svg',
-    apple: '/build-in-public-dashboard/favicon.svg',
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
-  manifest: '/build-in-public-dashboard/manifest.json',
+  manifest: '/manifest.json',
   other: {
     'referrer': 'strict-origin-when-cross-origin',
     'theme-color': '#10b981',
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
-              name: 'OpenMetrics',
+              name: 'IndieMetrics',
               description: 'Auto-updating public dashboard for indie makers. Build in public with transparency.',
               applicationCategory: 'BusinessApplication',
               operatingSystem: 'Any',
@@ -73,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         {/* Plausible Analytics — DSGVO-compliant, lightweight */}
-        <script defer data-domain="oversea-starups.github.io" data-api="/build-in-public-dashboard/api/event" src="https://plausible.io/js/script.js" />
+        <script defer data-domain="indiemetrics.com" data-api="/api/event" src="https://plausible.io/js/script.js" />
       </head>
       <body className="min-h-screen antialiased">
         <ErrorBoundary>
