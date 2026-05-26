@@ -29,7 +29,7 @@ export default function PublicPage() {
   const maxMrr = Math.max(...history.map(h => h.mrr))
 
   const copyEmbed = () => {
-    const code = `<iframe src="https://indiemetrics.com/public/demo" width="100%" height="600" frameborder="0"></iframe>`
+    const code = `<iframe src="https://oversea-starups.github.io/build-in-public-dashboard/public/demo" width="100%" height="600" frameborder="0"></iframe>`
     navigator.clipboard.writeText(code)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://indiemetrics.com/sitemap.xml
+Sitemap: https://oversea-starups.github.io/build-in-public-dashboard/sitemap.xml

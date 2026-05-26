@@ -1,17 +1,22 @@
+const isCustomDomain = process.env.CUSTOM_DOMAIN === 'true'
+const basePath = isCustomDomain ? '' : '/build-in-public-dashboard'
+const domain = isCustomDomain ? 'indiemetrics.com' : 'oversea-starups.github.io'
+const canonicalPath = isCustomDomain ? '/' : '/build-in-public-dashboard'
+
 export const metadata = {
   title: 'IndieMetrics — Build in Public Dashboard',
   description: 'Auto-updating public dashboard for indie makers. Connect Stripe, Gumroad, RevenueCat and Google Analytics in one place. Build in public with transparency.',
   keywords: ['indie maker', 'dashboard', 'stripe', 'gumroad', 'revenuecat', 'metrics', 'build in public', 'open startup', 'analytics', 'transparent metrics'],
   authors: [{ name: 'IndieMetrics' }],
   creator: 'IndieMetrics',
-  metadataBase: new URL('https://indiemetrics.com'),
+  metadataBase: new URL(`https://${domain}`),
   alternates: {
-    canonical: '/',
+    canonical: canonicalPath,
   },
   openGraph: {
     title: 'IndieMetrics — Build in Public Dashboard',
     description: 'Auto-updating public dashboard for indie makers. Connect Stripe, Gumroad, and Google Analytics.',
-    url: 'https://indiemetrics.com',
+    url: `https://${domain}${canonicalPath}`,
     siteName: 'IndieMetrics',
     locale: 'en_US',
     type: 'website',
@@ -31,11 +36,11 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: `${basePath}/favicon.svg`,
+    shortcut: `${basePath}/favicon.svg`,
+    apple: `${basePath}/favicon.svg`,
   },
-  manifest: '/manifest.json',
+  manifest: `${basePath}/manifest.json`,
   other: {
     'referrer': 'strict-origin-when-cross-origin',
     'theme-color': '#10b981',
@@ -72,8 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
-        {/* Plausible Analytics — DSGVO-compliant, lightweight */}
-        <script defer data-domain="indiemetrics.com" data-api="/api/event" src="https://plausible.io/js/script.js" />
+        <script defer data-domain={domain} data-api={`${basePath}/api/event`} src="https://plausible.io/js/script.js" />
       </head>
       <body className="min-h-screen antialiased">
         <ErrorBoundary>

@@ -2,14 +2,14 @@
   "name": "IndieMetrics",
   "short_name": "IndieMetrics",
   "description": "Auto-updating public dashboard for indie makers.",
-  "start_url": "/",
+  "start_url": "/build-in-public-dashboard/",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#10b981",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/build-in-public-dashboard/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

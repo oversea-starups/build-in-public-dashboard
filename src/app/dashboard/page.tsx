@@ -132,7 +132,7 @@ export default function DashboardPage() {
           <h3 className="font-semibold text-white mb-4">Embed on your site</h3>
           <p className="text-sm text-neutral-400 mb-3">Copy this code to embed your public dashboard:</p>
           <pre className="p-4 bg-neutral-950 rounded-lg text-xs text-neutral-400 overflow-x-auto font-mono border border-neutral-800">
-            {`<iframe src="https://indiemetrics.com/public/demo" width="100%" height="600" frameborder="0"></iframe>`}
+            {`<iframe src="https://oversea-starups.github.io/build-in-public-dashboard/public/demo" width="100%" height="600" frameborder="0"></iframe>`}
           </pre>
         </div>
       </div>
