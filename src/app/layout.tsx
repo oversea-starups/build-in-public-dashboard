@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'OpenMetrics — Build in Public Dashboard',
-  description: 'Auto-updating public dashboard for indie makers. Connect Stripe, Gumroad, and Google Analytics in one place.',
-  keywords: ['indie maker', 'dashboard', 'stripe', 'gumroad', 'metrics', 'build in public', 'analytics'],
+  description: 'Auto-updating public dashboard for indie makers. Connect Stripe, Gumroad, RevenueCat and Google Analytics in one place. Build in public with transparency.',
+  keywords: ['indie maker', 'dashboard', 'stripe', 'gumroad', 'revenuecat', 'metrics', 'build in public', 'open startup', 'analytics', 'transparent metrics'],
   authors: [{ name: 'OpenMetrics' }],
   creator: 'OpenMetrics',
   metadataBase: new URL('https://oversea-starups.github.io'),
@@ -35,16 +35,20 @@ export const metadata = {
     shortcut: '/build-in-public-dashboard/favicon.svg',
     apple: '/build-in-public-dashboard/favicon.svg',
   },
+  manifest: '/build-in-public-dashboard/manifest.json',
   other: {
     'referrer': 'strict-origin-when-cross-origin',
+    'theme-color': '#10b981',
   },
 }
+
+import { ErrorBoundary } from '@/components/error-boundary'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" dir="ltr">
       <head>
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';" />
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self';" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -52,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
               name: 'OpenMetrics',
-              description: 'Auto-updating public dashboard for indie makers.',
+              description: 'Auto-updating public dashboard for indie makers. Build in public with transparency.',
               applicationCategory: 'BusinessApplication',
               operatingSystem: 'Any',
               offers: {
@@ -68,8 +72,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
+        {/* Plausible Analytics — DSGVO-compliant, lightweight */}
+        <script defer data-domain="oversea-starups.github.io" data-api="/build-in-public-dashboard/api/event" src="https://plausible.io/js/script.js" />
       </head>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
+      </body>
     </html>
   )
 }

@@ -40,15 +40,19 @@ export default function Home() {
 
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-16">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6">
-          <TrendingUp className="w-3 h-3" /> Build in public, automatically
+          <TrendingUp className="w-3 h-3" /> Open Startup
+        </div>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-medium mb-6 ml-2">
+          <span className="text-xs">🤖</span> AI-ready
         </div>
         <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
           Your metrics.<br />
           <span className="text-emerald-400">Always current.</span>
         </h1>
         <p className="text-lg text-neutral-400 max-w-xl mb-8">
-          Stop screenshotting Stripe every Monday. Connect your revenue, traffic, and product data — 
-          then share a live public dashboard that updates itself.
+          Transparency = trust. In 2026, the most successful indie makers share their metrics openly.
+          Connect Stripe, Gumroad, RevenueCat — then share a live dashboard that builds your community
+          while you sleep.
         </p>
         <div className="flex flex-wrap gap-4">
           <Link href="/dashboard"
@@ -72,11 +76,16 @@ export default function Home() {
           </div>
           <p>Trusted by <span className="text-neutral-300 font-medium">89+</span> indie makers</p>
         </div>
+        <div className="mt-4 inline-flex items-center gap-2 text-xs text-neutral-600">
+          <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Built with AI</span>
+          <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Open Startup</span>
+          <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">DSGVO-ready</span>
+        </div>
       </section>
 
       <section className="max-w-5xl mx-auto px-6 py-20 border-t border-neutral-800">
         <h2 className="text-2xl font-bold text-white mb-4 text-center">How it works</h2>
-        <p className="text-neutral-500 text-center mb-12 max-w-lg mx-auto">Connect once. Share everywhere. No more manual screenshots.</p>
+        <p className="text-neutral-500 text-center mb-12 max-w-lg mx-auto">The Open Startup movement is growing. Founders who share metrics grow 3x faster on X. Connect once, let your dashboard tell your story.</p>
         <div className="grid md:grid-cols-3 gap-8">
           <FeatureCard icon={<BarChart3 className="w-6 h-6" />} title="Connect your data" desc="Stripe, Gumroad, Google Analytics, GitHub — all in one place." />
           <FeatureCard icon={<Eye className="w-6 h-6" />} title="Auto-updating charts" desc="Charts refresh automatically. No more manual screenshots." />
